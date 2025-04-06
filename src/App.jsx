@@ -1,7 +1,7 @@
 import React from "react";
-import HomePage from "./Pages/Home";
-import ContactPage from "./Pages/Contact";
-import ProductsPage from "./Pages/Products";
+import HomePage from "./pages/Home";
+import ContactPage from "./pages/Contact";
+import ProductsPage from "./pages/Products";
 import Header from "./Componets/Header";
 import Footer from "./Componets/Footer";
 import { Route, Router, Routes } from "react-router-dom";
