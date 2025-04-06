@@ -114,14 +114,14 @@ export default function ContactPage() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-3 bg-purple-600 text-white rounded-md"
+                  className="w-full py-2 bg-purple-600 text-white rounded-md"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
                     <span>Submitting...</span>
                   ) : (
                     <span>
-                      Send Message <Send className="ml-2 h-4 w-4" />
+                      Send Message <Send className="ml-2 h-2 w-3" />
                     </span>
                   )}
                 </button>

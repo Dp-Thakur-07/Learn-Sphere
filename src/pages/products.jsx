@@ -15,7 +15,7 @@ export default function ProductsPage() {
             </div>
             <div className="space-x-4">
               <Link to="/contact">
-              <button className="bg-white text-purple-700 hover:bg-gray-100 px-6 py-2 rounded-md font-medium flex items-center">
+              <button className="bg-white text-purple-700 hover:bg-gray-100 px-6 py-2 rounded-md font-medium flex items-center cursor-pointer">
                 Enroll Now <ArrowRight className="ml-2 h-4 w-4" />
               </button>
               </Link>
@@ -260,9 +260,12 @@ export default function ProductsPage() {
               </p>
             </div>
             <div className="space-x-4">
-              <button className="bg-white text-purple-700 hover:bg-gray-100 px-6 py-2 rounded-md font-medium flex items-center">
+              <Link to="/contact">
+              <button className="bg-white text-purple-700 hover:bg-gray-100 px-6 py-2 rounded-md font-medium flex items-center cursor-pointer">
                 Apply Now <ArrowRight className="ml-2 h-4 w-4" />
               </button>
+              </Link>
+              
             </div>
           </div>
         </div>

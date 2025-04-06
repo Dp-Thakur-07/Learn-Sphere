@@ -20,10 +20,10 @@ export default function HomePage() {
           </p>
           <div className="space-x-4">
             <Link to="/products">
-              <button className="bg-white text-purple-700 px-4 py-2 rounded hover:bg-gray-100">Explore Programs</button>
+              <button className="bg-white text-purple-700 px-4 py-2 rounded hover:bg-gray-100 cursor-pointer">Explore Programs</button>
             </Link>
             <Link to="/contact">
-              <button className="border border-white text-white px-4 py-2 rounded hover:bg-white hover:text-purple-700">
+              <button className="border border-white text-white px-4 py-2 rounded hover:bg-white hover:text-purple-700 cursor-pointer">
                 Contact Us
               </button>
             </Link>
@@ -74,7 +74,7 @@ export default function HomePage() {
               { name: "Aisha Patel", role: "Lead Data Scientist" },
             ].map((person, idx) => (
               <div key={idx} className="bg-white p-6 rounded-lg shadow flex flex-col items-center">
-                <img src="/placeholder.svg" alt={person.name} className="rounded-full w-32 h-32 mb-4" />
+                <img src="./assets/CEO.jpg" alt={person.name} className="rounded-full w-32 h-32 mb-4" />
                 <h3 className="text-xl font-semibold">{person.name}</h3>
                 <p className="text-gray-500">{person.role}</p>
               </div>
@@ -158,7 +158,7 @@ export default function HomePage() {
             Join thousands of students who have transformed their careers with LearnSphere.
           </p>
           <Link to="/products">
-            <button className="bg-white text-purple-700 px-6 py-2 rounded hover:bg-gray-100">
+            <button className="bg-white text-purple-700 px-6 py-2 rounded hover:bg-gray-100 cursor-pointer">
               Explore Our Programs →
             </button>
           </Link>
