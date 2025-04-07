@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 import { Link } from "react-router-dom";
-import WeatherWidget from "../Componets/Weather";
+import WeatherWidget from "../componets/Weather";
 import ChatbotWidget from "../componets/Chatboat";
 import CEO from "../assets/CEO.jpg";   
 import CurriculumHead from "../assets/Member.jpg";
