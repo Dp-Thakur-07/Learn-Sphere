@@ -8,7 +8,6 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import ScrollToTop from "./componets/ScrollToTop"; 
 
 
-
 function App() {
   const location = useLocation();
   const navigate = useNavigate();

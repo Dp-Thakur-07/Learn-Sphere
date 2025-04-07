@@ -54,30 +54,53 @@ export default function ChatbotWidget() {
     }, 1000 + Math.random() * 1000); 
   };
 
+  const faqData = [
+    { question: "What is learnsphere", answer: "LearnSphere is an EdTech platform for AI and Data Science." },
+    { question: "What programs do you offer", answer: "We offer bootcamps in AI, Machine Learning, and Data Science." },
+    { question: "How can I contact you?", answer: "You can use the contact form or email us at contact@learnsphere.com." },
+    { question: "What is the duration of the bootcamp?", answer: "Our DataSprint bootcamp is 16 weeks long." },
+    { question: "Is the bootcamp online or in-person?", answer: "The bootcamp is fully online, so you can join from anywhere." },
+    { question: "Do you provide a certificate?", answer: "Yes, you will receive a certificate upon successful completion of the bootcamp." },
+    { question: "What tools or languages will I learn?", answer: "You will learn Python, SQL, machine learning libraries like pandas, scikit-learn, and data visualization tools." },
+    { question: "Are there live sessions or recorded?", answer: "The bootcamp includes live interactive sessions as well as recorded materials for flexible learning." }
+  ];
+  
   const getBotResponse = (userInput) => {
-    // Simple rule-based responses
-    if (userInput.includes("hello") || userInput.includes("hi") || userInput.includes("hey")) {
+    // Convert to lowercase for matching
+    const lowerInput = userInput.toLowerCase();
+  
+    // Rule-based replies
+    if (lowerInput.includes("hello") || lowerInput.includes("hi") || lowerInput.includes("hey")) {
       return "Hello! How can I help you with your data science journey today?";
-    } else if (userInput.includes("course") || userInput.includes("program") || userInput.includes("bootcamp")) {
+    } else if (lowerInput.includes("course") || lowerInput.includes("program") || lowerInput.includes("bootcamp")) {
       return "Our DataSprint bootcamp is a 16-week intensive program designed to take you from beginner to job-ready data scientist. Would you like to know more about the curriculum or pricing?";
-    } else if (userInput.includes("price") || userInput.includes("cost") || userInput.includes("tuition")) {
+    } else if (lowerInput.includes("price") || lowerInput.includes("cost") || lowerInput.includes("tuition")) {
       return "The DataSprint bootcamp costs $9,995 if paid upfront, or we offer monthly installments and income share agreements. Would you like me to explain our payment options in more detail?";
     } else if (
-      userInput.includes("prerequisite") ||
-      userInput.includes("experience") ||
-      userInput.includes("background")
+      lowerInput.includes("prerequisite") ||
+      lowerInput.includes("experience") ||
+      lowerInput.includes("background")
     ) {
       return "No prior programming experience is required for our bootcamp. We start with the fundamentals and build up to advanced topics. A background in math or statistics can be helpful but is not required.";
-    } else if (userInput.includes("job") || userInput.includes("career") || userInput.includes("placement")) {
+    } else if (lowerInput.includes("job") || lowerInput.includes("career") || lowerInput.includes("placement")) {
       return "Our job placement rate is 93% within 6 months of graduation. We have partnerships with top tech companies and provide career coaching, resume reviews, and interview preparation.";
-    } else if (userInput.includes("apply") || userInput.includes("application") || userInput.includes("enroll")) {
+    } else if (lowerInput.includes("apply") || lowerInput.includes("application") || lowerInput.includes("enroll")) {
       return "You can apply for our program by filling out the form on our Contact page. After submitting your application, you'll be invited to a technical assessment and interview with our admissions team.";
-    } else if (userInput.includes("thank")) {
+    } else if (lowerInput.includes("thank")) {
       return "You're welcome! Is there anything else I can help you with?";
-    } else {
-      return "I'm not sure I understand. Could you rephrase your question? You can ask about our program, prerequisites, job placement, or application process.";
     }
+  
+    // FAQ matching from array
+    for (let item of faqData) {
+      if (lowerInput.includes(item.question.toLowerCase())) {
+        return item.answer;
+      }
+    }
+  
+    // Default fallback
+    return "I'm not sure I understand. Could you rephrase your question? You can ask about our program, prerequisites, job placement, or application process.";
   };
+  
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
