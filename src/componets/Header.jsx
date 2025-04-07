@@ -13,7 +13,7 @@ const Header = () => {
             Home
           </Link>
           <Link to="/products" className="text-sm font-medium hover:text-purple-700">
-            Programs
+            Products
           </Link>
           <Link to="/contact" className="text-sm font-medium hover:text-purple-700">
             Contact

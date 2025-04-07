@@ -57,76 +57,77 @@ export default function ContactPage() {
       <section className="w-full py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="space-y-4">
-              <h2 className="text-3xl font-bold">Send Us a Message</h2>
-              <p className="text-gray-500">Fill out the form below and our team will get back to you.</p>
+          <div className="space-y-4 border border-gray-200 rounded-lg shadow-md p-6 bg-white">
+  <h2 className="text-3xl font-bold text-purple-700">Send Us a Message</h2>
+  <p className="text-gray-500">Fill out the form below and our team will get back to you.</p>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid gap-2">
-                  <label htmlFor="name" className="text-sm">Name</label>
-                  <input
-                    id="name"
-                    name="name"
-                    placeholder="Your name"
-                    required
-                    className="input"
-                    value={formData.name}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="email" className="text-sm">Email</label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="Your email"
-                    required
-                    className="input"
-                    value={formData.email}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="phone" className="text-sm">Phone</label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    placeholder="Your phone number"
-                    className="input"
-                    value={formData.phone}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="message" className="text-sm">Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    placeholder="Your message"
-                    required
-                    rows={5}
-                    className="input"
-                    value={formData.message}
-                    onChange={handleChange}
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full py-2 bg-purple-600 text-white rounded-md"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <span>Submitting...</span>
-                  ) : (
-                    <span>
-                      Send Message <Send className="ml-2 h-2 w-3" />
-                    </span>
-                  )}
-                </button>
-              </form>
-            </div>
+  <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="grid gap-2">
+      <label htmlFor="name" className="text-sm font-medium">Name</label>
+      <input
+        id="name"
+        name="name"
+        placeholder="Your name"
+        required
+        className="input border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+        value={formData.name}
+        onChange={handleChange}
+      />
+    </div>
+    <div className="grid gap-2">
+      <label htmlFor="email" className="text-sm font-medium">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        placeholder="Your email"
+        required
+        className="input border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+        value={formData.email}
+        onChange={handleChange}
+      />
+    </div>
+    <div className="grid gap-2">
+      <label htmlFor="phone" className="text-sm font-medium">Phone</label>
+      <input
+        id="phone"
+        name="phone"
+        type="tel"
+        placeholder="Your phone number"
+        className="input border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+        value={formData.phone}
+        onChange={handleChange}
+      />
+    </div>
+    <div className="grid gap-2">
+      <label htmlFor="message" className="text-sm font-medium">Message</label>
+      <textarea
+        id="message"
+        name="message"
+        placeholder="Your message"
+        required
+        rows={5}
+        className="input border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+        value={formData.message}
+        onChange={handleChange}
+      />
+    </div>
+    <button
+      type="submit"
+      className="w-full py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-all duration-200"
+      disabled={isSubmitting}
+    >
+      {isSubmitting ? (
+        <span>Submitting...</span>
+      ) : (
+        <span className="flex items-center justify-center gap-2">
+          Send Message <Send className="h-4 w-4" />
+        </span>
+      )}
+    </button>
+  </form>
+</div>
+
 
             {/* Map Section */}
             <div className="space-y-4">

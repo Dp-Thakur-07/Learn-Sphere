@@ -5,7 +5,7 @@ export default function WeatherWidget() {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const apiKey = "c2af19cda39c52dd96bf3feabf5af975"; // ← Replace this with your actual key
+  const apiKey = "c2af19cda39c52dd96bf3feabf5af975"; 
 
   useEffect(() => {
     const fetchWeather = async () => {

@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import ContactPage from "./pages/Contact";
-import ProductsPage from "./pages/Products";
 import Header from "./Componets/Header";
+import ProductsPage from "./pages/products"
+import ContactPage from "./pages/contact"
 import Footer from "./Componets/Footer";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import ScrollToTop from "./componets/ScrollToTop"; 
 import HomePage from "./Pages/Home";
-import ScrollToTop from "./componets/ScrollToTop"; // ✅ Add this import
 
 function App() {
   const location = useLocation();
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <ScrollToTop /> {/* ✅ Add this just inside your app layout */}
+      <ScrollToTop /> 
 
       <Header />
       <main className="flex-grow">
