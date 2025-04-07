@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import Header from "./componets/Header";
+import HomePage from "./pages/home";
 import ProductsPage from "./pages/products"
 import ContactPage from "./pages/contact"
 import Footer from "./componets/Footer";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import ScrollToTop from "./componets/ScrollToTop"; 
-import HomePage from "./Pages/Home";
+
 
 
 function App() {
