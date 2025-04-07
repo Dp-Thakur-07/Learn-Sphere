@@ -5,28 +5,32 @@ export default function WeatherWidget() {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const apiKey = "c2af19cda39c52dd96bf3feabf5af975"; // ← Replace this with your actual key
+
   useEffect(() => {
-    // Simulate API call to weather service
     const fetchWeather = async () => {
       setLoading(true);
+      try {
+        const response = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=indore&units=metric&appid=${apiKey}`
+        );
+        const data = await response.json();
 
-      // In a real app, you would fetch from an actual API
-      // const response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=San+Francisco&appid=YOUR_API_KEY');
-      // const data = await response.json();
-
-      // Mock data for demonstration
-      setTimeout(() => {
-        const mockWeatherData = {
-          location: "San Francisco, CA",
-          temperature: 68,
-          condition: "Partly Cloudy",
-          humidity: 72,
-          windSpeed: 8,
+        const weatherData = {
+          location: `${data.name}, ${data.sys.country}`,
+          temperature: Math.round(data.main.temp),
+          condition: data.weather[0].main,
+          humidity: data.main.humidity,
+          windSpeed: Math.round(data.wind.speed),
         };
 
-        setWeather(mockWeatherData);
+        setWeather(weatherData);
+      } catch (error) {
+        console.error("Failed to fetch weather data:", error);
+        setWeather(null);
+      } finally {
         setLoading(false);
-      }, 1500);
+      }
     };
 
     fetchWeather();
@@ -34,19 +38,13 @@ export default function WeatherWidget() {
 
   const getWeatherIcon = (condition) => {
     switch (condition.toLowerCase()) {
-      case "sunny":
+      case "clear":
         return <Sun className="h-12 w-12 text-yellow-500" />;
-      case "cloudy":
+      case "clouds":
         return <Cloud className="h-12 w-12 text-gray-500" />;
-      case "rainy":
+      case "rain":
+      case "drizzle":
         return <CloudRain className="h-12 w-12 text-blue-500" />;
-      case "partly cloudy":
-        return (
-          <div className="relative">
-            <Sun className="h-12 w-12 text-yellow-500" />
-            <Cloud className="h-8 w-8 text-gray-500 absolute -bottom-1 -right-1" />
-          </div>
-        );
       default:
         return <Sun className="h-12 w-12 text-yellow-500" />;
     }
@@ -84,7 +82,7 @@ export default function WeatherWidget() {
         <div className="flex items-center gap-4">
           {getWeatherIcon(weather.condition)}
           <div>
-            <p className="text-3xl font-bold">{weather.temperature}°F</p>
+            <p className="text-3xl font-bold">{weather.temperature}°C</p>
             <p className="text-gray-500">{weather.condition}</p>
           </div>
         </div>
@@ -99,7 +97,7 @@ export default function WeatherWidget() {
             <div className="bg-blue-100 p-1 rounded">
               <Wind className="h-4 w-4 text-blue-600" />
             </div>
-            <span className="text-sm">Wind: {weather.windSpeed} mph</span>
+            <span className="text-sm">Wind: {weather.windSpeed} m/s</span>
           </div>
         </div>
       </div>

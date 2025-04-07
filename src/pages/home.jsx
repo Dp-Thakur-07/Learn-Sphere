@@ -3,6 +3,9 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import WeatherWidget from "../Componets/Weather";
 import ChatbotWidget from "../componets/Chatboat";
+import CEO from "../assets/CEO.jpg";   
+import CurriculumHead from "../assets/Member.jpg";
+import DataScientist from "../assets/Member2.jpg"; 
 
 export default function HomePage() {
   useEffect(() => {
@@ -58,30 +61,31 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="w-full py-20 bg-gray-50 text-center">
-        <div className="container mx-auto px-4">
-          <span className="text-purple-700 font-semibold text-sm">Who We Are</span>
-          <h2 className="text-4xl font-bold my-4">Meet Our Team</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            We're a team of educators, technologists, and industry experts passionate about preparing students for careers in AI and Data Science.
-          </p>
-    
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { name: "Dr. Sarah Chen", role: "Founder & CEO" },
-              { name: "Michael Rodriguez", role: "Head of Curriculum" },
-              { name: "Aisha Patel", role: "Lead Data Scientist" },
-            ].map((person, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-lg shadow flex flex-col items-center">
-                <img src="./assets/CEO.jpg" alt={person.name} className="rounded-full w-32 h-32 mb-4" />
-                <h3 className="text-xl font-semibold">{person.name}</h3>
-                <p className="text-gray-500">{person.role}</p>
-              </div>
-            ))}
-          </div>
+{/* Team section */}
+
+<section className="w-full py-20 bg-gray-50 text-center">
+  <div className="container mx-auto px-4">
+    <span className="text-purple-700 font-semibold text-sm">Who We Are</span>
+    <h2 className="text-4xl font-bold my-4">Meet Our Team</h2>
+    <p className="text-gray-600 max-w-2xl mx-auto mb-8">
+      We're a team of educators, technologists, and industry experts passionate about preparing students for careers in AI and Data Science.
+    </p>
+
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {[
+        { name: "Dr. Sarah Chen", role: "Founder & CEO", image: CEO },
+        { name: "Michael Rodriguez", role: "Head of Curriculum",image: CurriculumHead },
+        { name: "Aisha Patel", role: "Lead Data Scientist" ,image: DataScientist},
+      ].map((person, idx) => (
+        <div key={idx} className="bg-white p-6 rounded-lg shadow flex flex-col items-center">
+          <img src={person.image} alt={person.name} className="rounded-full w-32 h-32 mb-4 object-cover shadow-md border-2 border-purple-200" />
+          <h3 className="text-xl font-semibold">{person.name}</h3>
+          <p className="text-gray-500">{person.role}</p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* What is Data Science */}
       <section className="w-full py-20 bg-white">
